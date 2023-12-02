@@ -14,11 +14,13 @@ func main() {
 	fmt.Println("we have total of ", conferenceTicket, "tickets and", remainingTicket, "are still available")
 	fmt.Println("Get your tickets here to attend")
 	//loop
+	 greetUser()
 	for{
 		var userTicket uint
 		var firstName string
 		var lastName string
 		var email string
+// 		 var city string
 		//asking user for their name
 		fmt.Println("Enter your FirstName:") 
 		//& to send data in  memeory
@@ -30,7 +32,13 @@ func main() {
 		fmt.Scan(&email)
 		fmt.Println("Enter number of ticket")
 		fmt.Scan(&userTicket)
-		if userTicket> remainingTicket{
+		   isValidName :=  len(firstName)>= 2 && len(lastName)>=2
+		  isEmailValid:= strings.Contains(email,"@")
+		 isValidtTicketNumber :=userTicket> 0 && userTicket<= remainingTicket
+		// isValidCity = city == "singapore" || city== "newyork"
+		 // check for invalid  city 
+	     //invalidCity := city != "singapore" || city != "newyork"
+		if isValidName && isEmailValid && isValidtTicketNumber{
 			fmt.Printf("We Only have %v ticket available,so you can't book %v ticket \n", remainingTicket,userTicket)
 			continue
 		}
@@ -62,11 +70,46 @@ func main() {
 				//end program
 				fmt.Println("The conference is booked out,Thanks Come back later")
 				break
+				//elseif in golang
+			}else{
+				if !isValidName{
+					fmt.Println("The firstname or lastname entered is not correct")
+				} 
+				 if !isEmailValid{
+					fmt.Println("the email you entered is invalid")
+				}
+				if !isValidtTicketNumber{
+					fmt.Println("invalid ticket number ")
+				}
+				fmt.Println("your Input data is invalid")
 			}
+
 		}
 		
 		//loops
 		//for loop(infinte loop,)
 		//forEach
+		//conditioinal loops in go
+		// user Input validation
+	//switch cases 
+	// city :="singapore"
+	// switch{
+	// case "Newyork":
+	// 		 fmt.Printf("")//do something here
+	// case  "Singapore":
+	// 		fmt.Printf("")//do something here
+	// case  "Toronto":
+	// 		//do Something here
+	// case  "Lagos":
+	// 		//do something here
+	// default:
+	// 	fmt.Println("no valid city")
+	// }
 	
+}
+
+//functions in go
+
+func greetUser(){
+	fmt.Println("Welcome to our Conference Booking System")
 }
