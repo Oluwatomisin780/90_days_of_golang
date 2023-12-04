@@ -14,7 +14,7 @@ func main() {
 	fmt.Println("we have total of ", conferenceTicket, "tickets and", remainingTicket, "are still available")
 	fmt.Println("Get your tickets here to attend")
 	//loop
-	 greetUser()
+	 greetUser(conferenceName)
 	for{
 		var userTicket uint
 		var firstName string
@@ -74,7 +74,7 @@ func main() {
 			}else{
 				if !isValidName{
 					fmt.Println("The firstname or lastname entered is not correct")
-				} 
+				}  
 				 if !isEmailValid{
 					fmt.Println("the email you entered is invalid")
 				}
@@ -110,6 +110,6 @@ func main() {
 
 //functions in go
 
-func greetUser(){
-	fmt.Println("Welcome to our Conference Booking System")
+func greetUser(confName string ){
+	fmt.Printf("Welcome to our %v Booking System",confName)
 }
