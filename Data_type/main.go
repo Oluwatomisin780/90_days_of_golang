@@ -15,7 +15,13 @@ func  main()  {
 
 	//Rune alias fot int 32 bit
 	var r rune='f'
+	fmt.Printf("%T\n",r)
     fmt.Println(r)
+
+	//Bool Type
+	 var b bool = true
+	 fmt.Printf("%T",b)
+	 
 
 
 }
