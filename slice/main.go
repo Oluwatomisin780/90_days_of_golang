@@ -40,6 +40,7 @@ friends[0]= "fiona"
  //-----------------------------------------------------------
  var g []int
   fmt.Println("g equal to nil:",g==nil )
-  
+  m:=[]int{}
+  println(m)
 
 }
