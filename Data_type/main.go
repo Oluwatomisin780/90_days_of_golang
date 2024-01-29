@@ -21,7 +21,73 @@ func  main()  {
 	//Bool Type
 	 var b bool = true
 	 fmt.Printf("%T",b)
-	 
 
+	// Strin (" %T \n",s)
+
+	//arrays
+	var numbers = [4] int{2,4,5,6}
+	fmt.Printf("%T\n",numbers)
+	//slice Type
+	var  cities = []string {"london", "tokyo","New York"}
+	fmt.Printf("%T\n",cities)
+
+//Map TYPES
+m := map[string]float64{
+	"USD":3.33,
+	"EUR":70.67,
+
+}
+fmt.Printf("%T\n",m)
+
+//STRUCT TYPE
+type Person struct{
+ name string
+ age int
+}
+var you Person
+fmt.Printf("%T\n",you)
+
+//POINTER TYPE
+var x int = 2 
+  ptr:= &x
+  fmt.Printf("%T\n",ptr)
+  fmt.Printf("%T\n",f)
+
+  //operator are symbol 
+  e,f:= 4,2 
+
+ d:= (e+f)/(e-f)*2
+ d = 9% e
+ //increment assgnment
+ e+=f 
+println(e)
+ //decrement assgnments
+f-=4
+
+ fmt.Println(d)
+ //multiple assignment
+ r *= 45
+ // comparison  and logical operator
+ // == equal to 
+// != not equal to
+// < less
+// >greater 
+// <= less or equal
+// >= greater or equal
+// 
+  s,j:= 5,10
+ fmt.Println(s==j)
+ fmt.Println( s !=j)
+ fmt.Println(s>j )
+ //conditional operators
+ // && -->  conditional and
+ // || --> conditional or 
+ // 
+ fmt.Println(s>1&&j== 20)
+ fmt.Println(j== 10 || s >100)
+}
+
+//FUNCTION TYPE 
+func f(){;
 
 }
