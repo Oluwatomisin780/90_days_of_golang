@@ -61,3 +61,7 @@ fmt.Println(strings.Repeat("-",20))
   accounts:= [3]int{2:4}
   fmt.Println(accounts)
 }
+ 
+
+
+//difference between array and slice
