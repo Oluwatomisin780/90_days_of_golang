@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"os"
@@ -109,5 +110,75 @@ if err!= nil{
 	log.Fatal(err)
 }
 log.Printf("byte wriiten to buffer (not file ) %d\n",byteWrittens)
+byteAvailable := bufferWriter.Available()
+log.Printf("bytes is available in buffer %d\n",byteAvailable) 
+
+byteWrittens,err =   bufferWriter.WriteString("\n just a random string")
+if err != nil{
+	log.Fatal(err)
+}
+
+unflushedBuffered := bufferWriter.Buffered()
+log.Printf("bytes buffered: %d\n",unflushedBuffered)
+bufferWriter.Flush()
+
+//ReadingFile using bufferedbytes
+
+file4,err:= os.Open("myFile.txt")
+
+if err !=nil{
+	log.Fatal(err)
+}
+defer file4.Close()
+byteSlice2 := make([]byte,8)
+
+numberByteRead,err := io.ReadFull(file4,byteSlice2)
+if err != nil {
+log.Fatal(err)
+}
+log.Printf("number of byte read: %d\n",numberByteRead)
+log.Printf("Data read: %s\n",byteSlice2)
+
+
+file5,err :=  os.Open("main.go")
+ if err != nil {
+	log.Fatal(err)
+ }
+ defer file5.Close()
+ data,err := ioutil.ReadAll(file5)
+
+ if err != nil{
+	 log.Fatal(err)
+ }
+
+ fmt.Printf("Data is a string: %s\n",data)
+
+ // reading file using scanner line 
+
+ file6,err := os.Open("c.txt")
+ if  err != nil{
+	log.Fatal(err) 
+ }
+ defer file6.Close()
+ scanner := bufio.NewScanner(file6) 
+
+ success:= scanner.Scan()
+
+ if success ==false{
+	scanner.Err()
+	if  err == nil{
+		log.Println("Scan was completed and it reach Eof")
+	}else{
+		log.Fatal(err)
+	}
+
+ }
+ fmt.Println("first line found:",scanner.Text())  
+ for scanner.Scan(){
+	fmt.Println(scanner.Text())
+ }
+ if err :=scanner.Err();err !=nil{
+	log.Fatal()
+ }
 
 }
