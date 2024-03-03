@@ -180,5 +180,14 @@ file5,err :=  os.Open("main.go")
  if err :=scanner.Err();err !=nil{
 	log.Fatal()
  }
+//  scanner for user input reading from stdin in  golang
+scanner2 := bufio.NewScanner(os.Stdin)
+fmt.Printf("%T\n",scanner2)
+
+scanner2.Scan()
+text:= scanner2.Text()
+bytes4:= scanner2.Bytes()
+fmt.Println("Input text;",text)
+fmt.Println("Input bytes",bytes4)
 
 }
