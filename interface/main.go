@@ -47,18 +47,56 @@ type shape interface{
 	area() float64
 	perimeter() float64
 }
-
+func  (c circle) volume() float64{
+	return 4/3* math.Pi*math.Pow(c.radius,3)
+}
 
 func main(){
 	// An  Interface is the collection of signature
- var s shape 
+//  var s shape 
 
- fmt.Printf("%T\n", s )
- ball:= circle{ radius: 4.5}
- s=ball
- print(s)
+//  fmt.Printf("%T\n", s )
+//  ball:= circle{ radius: 4.5}
+//  s=ball
+//  print(s)
+//  fmt.Printf("Type of %T\n", s )
+//  room := rectangle{width: 3,height: 5}
+//  s= room
+//  fmt.Printf("Type of %T\n", s )
+
+ var s shape = circle{radius: 2.3}
  fmt.Printf("Type of %T\n", s )
- room := rectangle{width: 3,height: 5}
- s= room
- fmt.Printf("Type of %T\n", s )
+ //s.volume()
+ // type assertion 
+ball,ok := s.(circle)
+if ok== true{
+	fmt.Printf("ball volume : %T\n",ball.volume())
+}
+
+// type switch
+switch value := s.(type){
+case circle:
+	fmt.Printf("%#v has circle type\n",value)
+case rectangle:
+	fmt.Printf("%#v has rectangle type\n",value)
+}
+
+
+// embedded Interface
+
+
+//Empty Interface 
+var empty  interface{
+
+
+}
+empty= 5
+
+fmt.Println(empty)
+
+empty="go"
+fmt.Println(empty)
+
+empty= []int{4,5,6,5}
+fmt.Println(empty)
 }
