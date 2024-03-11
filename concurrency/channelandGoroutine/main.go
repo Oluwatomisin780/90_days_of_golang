@@ -37,4 +37,4 @@ go func(n int, c chan int){
 		}(i,ch)
 		fmt.Printf("Factorial of %d\n",i,<- ch)
 	}
-}
+} 
